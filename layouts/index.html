@@ -1,6 +1,15 @@
 {{ define "main" }}
-<main>
+<section class="main">
     <a href="/aspage"><button>Accordion as page</button></a>
-    <a href=""><button class="asPopOut">Accordion as popout</button></a>
-</main>
+    <a href="#"><button class="asPopOut">Accordion as popout</button></a>
+
+</section>
+
+<div class="accordion-overlay">
+    <button class="closePopOut">&times;</button>
+    <div class="accordion-popout-container">
+        {{ partial "accordion-popout" }}
+    </div>
+</div>
+
 {{ end }}

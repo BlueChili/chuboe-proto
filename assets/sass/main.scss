@@ -10,6 +10,7 @@ a button {
   color: white;
   font-weight: bold;
   cursor: pointer;
+  margin: 1rem;
 }
 
 .asPopOut { 
@@ -36,11 +37,54 @@ a button {
   }
 }
 
-main {
+.main {
   height: 100vh;
-  width: 100%;
+  width: 100vw;
   display: flex;
   flex-wrap: nowrap;
   justify-content: center;
   align-items: center;
+}
+
+
+.accordion-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+  background: rgba(black, 0.8);
+  opacity: 0;
+  transform: translateX(-110vw);
+  transition: transform 0.367s ease-in;
+  &.active {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.accordion-popout-container {
+  position: relative;
+  top: 1rem;
+  left: 1rem;
+  right: 1rem;
+  bottom: 1rem;
+}
+
+.closePopOut {
+  color: white;
+  font-size: 2.5rem;
+  background: none;
+  outline: none;
+  border: none;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  cursor: pointer;
+  z-index: 9;
+}
+
+.accordion-overlay .accordion-popout-container .slide-loader {
+  display: none;
 }

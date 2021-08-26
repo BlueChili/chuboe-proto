@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    {{ $css := resources.Get "sass/main.scss" | resources.ToCSS (dict "targetPath" "main.css") }}
+    <style>
+    {{ $css.Content | safeCSS }}
+    </style>
+    {{ $js := resources.Get "js/main.js" | js.Build (dict "targetPath" "js/main.js") }}
+    <script>{{- $js.Content | safeJS -}}</script>
+
+</head>
+<body>
+    {{ block "main" . }}
+    {{ end }}
+</body>
+</html>
